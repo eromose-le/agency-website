@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-size: 18px;
-  padding: 50px;
+  font-size: 1.125rem;
+  padding: 3.125rem;
 }
 
 .title {
@@ -21,7 +21,7 @@
 }
 
 .linkText {
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 .cardL {
@@ -34,4 +34,29 @@
 
 .cardItem {
   margin-bottom: 1.25rem;
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .linkTitle {
+    font-size: 1.475rem;
+  }
+
+  .imgFooter {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cardItem {
+    text-align: center;
+    font-size: 0.9375rem;
+  }
 }

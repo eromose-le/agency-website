@@ -43,3 +43,25 @@
   align-content: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .card {
+    padding: 3.125rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .desc {
+    display: none;
+  }
+
+  .title {
+    font-size: 1.875rem;
+    margin-bottom: 1.25rem;
+  }
+}

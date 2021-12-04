@@ -7,9 +7,15 @@ const Footer = () => {
       <div className={styles.cardL}>
         <h1 className={styles.title}>BA CONSULTING.</h1>
         <h1 className={styles.linkTitle}>
-          <a href="/contact" passHref>
+          <a href="/contact" passhref="true">
             <span className={styles.linkText}>WORK WITH US</span>
-            <Image src="/img/link.png" width="40px" height="40px" alt="" />
+            <Image
+              className={styles.imgFooter}
+              src="/img/link.png"
+              width="40px"
+              height="40px"
+              alt=""
+            />
           </a>
         </h1>
       </div>
