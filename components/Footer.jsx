@@ -22,7 +22,7 @@ const Footer = () => {
       <div className={styles.cardS}>
         <div className={styles.cardItem}>
           BLOCK 4, LEKKI PAHSE 1,
-          <br /> USA
+          <br /> NIGERIA
         </div>
         <div className={styles.cardItem}>
           CONTACT@BA.DEV
