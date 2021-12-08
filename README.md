@@ -1,3 +1,9 @@
+## Install Dependencies
+
+> yarn add | npm install
+
+NextJs Project
+
 ## Getting Started
 
 First, run the development server:
@@ -7,5 +13,3 @@ npm run dev
 # or
 yarn dev
 ```
-
-This is a NEXT project
