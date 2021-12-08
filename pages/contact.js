@@ -2,6 +2,7 @@ import styles from '../styles/Contact.module.css';
 import Circle from '../components/Circle';
 
 const contact = () => {
+  console.log(process.env.NEXT_PUBLIC_KEY);
   return (
     <div className={styles.container}>
       <Circle backgroundColor="green" left="-40vh" top="-20vh" />
@@ -20,3 +21,10 @@ const contact = () => {
 };
 
 export default contact;
+
+export function getServerSideProps() {
+  console.log(process.env.SECRET_VARIABLE);
+  return {
+    props: {}
+  };
+}
