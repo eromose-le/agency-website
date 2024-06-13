@@ -26,7 +26,7 @@ const Service: React.FC<Props> = (props) => {
               src={img.url}
               quality={100}
               fill
-              sizes="100vw"
+              sizes="100%"
               style={{ objectFit: "cover" }}
               alt="product-images"
             />

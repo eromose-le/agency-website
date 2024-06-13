@@ -1,8 +1,11 @@
+"use client";
 import Circle from "@/common/Circle";
 import styles from "@/styles/Intro.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Intro = () => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Circle backgroundColor="#b0ff49" top="-50vh" left="-50vh" />
@@ -17,7 +20,12 @@ const Intro = () => {
           Delta, we merge advanced technology with strategic consultancy to
           identify and solve complex business challenges.
         </p>
-        <button className={styles.button}>BOOK</button>
+        <button
+          className={styles.button}
+          onClick={() => router.push("/contact", { scroll: false })}
+        >
+          BOOK
+        </button>
       </div>
       <div className={styles.card}>
         <Image

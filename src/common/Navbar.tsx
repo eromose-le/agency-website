@@ -1,7 +1,7 @@
-'use client'
-import styles from '@/styles/Navbar.module.css';
-import Link from 'next/link';
-import { useState } from 'react';
+"use client";
+import styles from "@/styles/Navbar.module.css";
+import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -10,16 +10,16 @@ const Navbar = () => {
       <Link href="/">Roca Delta CONSULTING.</Link>
       <ul className={styles.list}>
         <li className={styles.listItem}>
-          <Link href="/products/design">DESIGN</Link>
+          <Link href="/service/design">DESIGN</Link>
         </li>
         <li className={styles.listItem}>
-          <Link href="/products/development">DEVELOPMENT</Link>
+          <Link href="/service/development">DEVELOPMENT</Link>
         </li>
         <li className={styles.listItem}>
-          <Link href="/products/production">PRODUCTION</Link>
+          <Link href="/service/production">PRODUCTION</Link>
         </li>
         <li className={styles.listItem}>
-          <Link href="/products/photography">PHOTOGRAPHY</Link>
+          <Link href="/service/photography">PHOTOGRAPHY</Link>
         </li>
         <li className={styles.listItem}>
           <Link href="/contact">CONTACT</Link>
@@ -36,16 +36,16 @@ const Navbar = () => {
         style={{ right: open ? "0px" : "-50vw" }}
       >
         <li className={styles.menuItem}>
-          <Link href="/products/design">DESIGN</Link>
+          <Link href="/service/design">DESIGN</Link>
         </li>
         <li className={styles.menuItem}>
-          <Link href="/products/development">DEVELOPMENT</Link>
+          <Link href="/service/development">DEVELOPMENT</Link>
         </li>
         <li className={styles.menuItem}>
-          <Link href="/products/production">PRODUCTION</Link>
+          <Link href="/service/production">PRODUCTION</Link>
         </li>
         <li className={styles.menuItem}>
-          <Link href="/products/photography">PHOTOGRAPHY</Link>
+          <Link href="/service/photography">PHOTOGRAPHY</Link>
         </li>
         <li className={styles.menuItem}>
           <Link href="/contact">CONTACT</Link>

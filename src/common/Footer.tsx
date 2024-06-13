@@ -10,7 +10,7 @@ const Footer = () => {
         <h1 className={styles.linkTitle}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <Link className={styles.linkText} href="/contact">
-              WORK WITH US
+              BOOK CONSULTATION WITH US
             </Link>
             <Link className={styles.linkText} href="/contact">
               <Image
