@@ -17,6 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
+
+      <script src="https://js.paystack.co/v2/inline.js" async></script>
     </html>
   );
 }

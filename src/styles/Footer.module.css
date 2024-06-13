@@ -59,4 +59,14 @@
     text-align: center;
     font-size: 0.9375rem;
   }
+
+  @media screen and (max-width: 480px) {
+    .linkTitle {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
