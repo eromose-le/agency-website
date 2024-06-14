@@ -4,9 +4,7 @@ import Head from "next/head";
 import Intro from "@/components/intro/Intro";
 import Services from "@/components/service/Services";
 import Testimonials from "@/components/testimonials/testimonials";
-// import { revalidatePath } from "next/cache";
 
-// revalidatePath("/", "layout");
 export default async function Landing() {
   return (
     <div className={styles.container}>
@@ -16,9 +14,7 @@ export default async function Landing() {
       </Head>
 
       <Intro />
-
       <Services />
-
       <Testimonials />
     </div>
   );
