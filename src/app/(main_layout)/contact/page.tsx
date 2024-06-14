@@ -2,8 +2,13 @@
 import Circle from "@/common/Circle";
 import styles from "@/styles/Contact.module.css";
 import React, { useState } from "react";
-import PaystackPayment from "@/components/PaystackPayment";
-import { redirect, useRouter } from "next/navigation";
+import PaystackPayment, {
+  PaystackTransaction,
+} from "@/components/PaystackPayment";
+import {
+  // redirect,
+  useRouter,
+} from "next/navigation";
 
 type Props = {};
 
@@ -14,7 +19,7 @@ const MESSAGE_PLACEHOLDER: string =
 const isProduction = false;
 
 const Contact: React.FC<Props> = (props) => {
-  const router = useRouter();
+  // const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [amount, setAmount] = useState<number>(BOOKING_AMOUNT);
   const [showPaystack, setShowPaystack] = useState<boolean>(false);
@@ -24,15 +29,7 @@ const Contact: React.FC<Props> = (props) => {
     setShowPaystack(true);
   };
 
-  const handleSuccess = async (transaction: {
-    reference: string;
-    status: string;
-    transaction: string;
-    trans: string;
-    message: string;
-    trxref: string;
-    redirecturl: string;
-  }) => {
+  const handleSuccess = async (transaction: PaystackTransaction) => {
     console.log("Transaction successful", transaction);
     if (transaction.status === "success") {
       console.log("SUCCESS FIRED");
@@ -56,8 +53,6 @@ const Contact: React.FC<Props> = (props) => {
           console.log("Transaction verification failed", data);
         }
       }
-
-      // return router.push("/", { scroll: false });
     } catch (error) {
       console.error("Verification error", error);
     }
