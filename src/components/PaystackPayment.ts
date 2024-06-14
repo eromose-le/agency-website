@@ -8,7 +8,7 @@ interface PaystackPaymentProps {
   onCancel: () => void;
 }
 
-interface PaystackTransaction {
+export interface PaystackTransaction {
   reference: string;
   status: string;
   transaction: string;
@@ -28,43 +28,48 @@ const PaystackPayment: React.FC<PaystackPaymentProps> = ({
   useEffect(() => {
     const scriptId = "paystack-script";
 
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.src = "https://js.paystack.co/v1/inline.js";
-      script.async = true;
-      script.id = scriptId;
-      document.body.appendChild(script);
-
-      script.onload = () => {
-        const handler = (window as any).PaystackPop.setup({
-          key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
-          email,
-          amount: amount * 100, // Paystack processes amounts in kobo (1 NGN = 100 kobo)
-          callback: (response: PaystackTransaction) => {
-            onSuccess(response);
-            handler.closeIframe(); // Close the Paystack popup after successful payment
-          },
-          onClose: () => {
-            onCancel();
-          },
-        });
-        handler.openIframe();
-      };
-    } else {
+    const initializePaystack = () => {
+      console.log("Initializing Paystack");
       const handler = (window as any).PaystackPop.setup({
         key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
         email,
-        amount: amount * 100,
+        amount: amount * 100, // Paystack processes amounts in kobo (1 NGN = 100 kobo)
         callback: (response: PaystackTransaction) => {
+          console.log("Payment successful", response);
           onSuccess(response);
+          window.location.reload();
           handler.closeIframe(); // Close the Paystack popup after successful payment
         },
         onClose: () => {
+          console.log("Payment cancelled");
           onCancel();
         },
       });
       handler.openIframe();
-    }
+    };
+
+    const loadPaystackScript = () => {
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.src = "https://js.paystack.co/v1/inline.js";
+        script.async = true;
+        script.id = scriptId;
+        document.body.appendChild(script);
+        script.onload = initializePaystack;
+      } else {
+        initializePaystack();
+      }
+    };
+
+    loadPaystackScript();
+
+    // Clean up the script tag when the component unmounts
+    return () => {
+      const script = document.getElementById(scriptId);
+      if (script) {
+        document.body.removeChild(script);
+      }
+    };
   }, [email, amount, onSuccess, onCancel]);
 
   return null;
