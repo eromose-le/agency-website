@@ -4,6 +4,7 @@ import Head from "next/head";
 import Intro from "@/components/intro/Intro";
 import Services from "@/components/service/Services";
 import Testimonials from "@/components/testimonials/testimonials";
+import Layout from "../layout";
 
 export default async function Landing() {
   return (
@@ -13,9 +14,11 @@ export default async function Landing() {
         <meta name="description" content="Roca Delta Consulting" />
       </Head>
 
-      <Intro />
-      <Services />
-      <Testimonials />
+      <Layout>
+        <Intro />
+        <Services />
+        <Testimonials />
+      </Layout>
     </div>
   );
 }
