@@ -18,6 +18,15 @@
   cursor: pointer;
 }
 
+.listItemActive {
+  display: inline;
+  margin-right: 1.875rem;
+  font-size: 0.875rem;
+  color: rgb(95, 217, 239);
+  font-weight: 500;
+  cursor: pointer;
+}
+
 .hamburger {
   display: none;
 }
@@ -58,15 +67,15 @@
     background-color: black;
     top: 50px;
     margin: 0;
-    padding: 0;
+    padding: 5rem 0;
     font-weight: bold;
     color: lightgrey;
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 1.6rem;
     flex-direction: column;
-    z-index: 999;
+    z-index: 3;
     transition: all 1s ease;
   }
 }

@@ -39,7 +39,6 @@
   background-color: rgba(192, 189, 189, 0.582);
   padding: 1.25rem;
   border-radius: 10px;
-  z-index: 999;
   opacity: 0;
   transition: all 1s ease;
 }
@@ -48,7 +47,6 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 999;
   text-transform: uppercase;
   color: gray;
   letter-spacing: 0.3125rem;
