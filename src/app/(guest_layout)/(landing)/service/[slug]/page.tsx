@@ -1,7 +1,7 @@
 import { data } from "@/data";
 import { Img } from "@/types/service";
 import styles from "@/styles/Product.module.css";
-import { filterData } from "@/utils";
+import { filterData, getRandomInt } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -23,6 +23,12 @@ const Service: React.FC<Props> = (props) => {
 
   const filterParams = { name: params.slug };
   const product = filterData(data, filterParams);
+
+  // const random = getRandomInt(2);
+  // console.log(random);
+  // if (random === 1) {
+  //   throw new Error("Error loading Service");
+  // }
 
   if (!product) {
     return notFound();
