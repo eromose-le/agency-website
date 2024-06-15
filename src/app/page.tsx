@@ -1,15 +1,12 @@
 import { Suspense } from "react";
-import Landing from "./(main_layout)/landing/page";
-import Layout from "./(main_layout)/layout";
+import Landing from "./(guest_layout)/(landing)/page";
 
 export default function Home() {
   return (
     <>
-      <Layout>
-        <Suspense fallback={null}>
-          <Landing />
-        </Suspense>
-      </Layout>
+      <Suspense fallback={null}>
+        <Landing />
+      </Suspense>
     </>
   );
 }
