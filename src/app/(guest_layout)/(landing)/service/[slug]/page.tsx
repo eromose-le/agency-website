@@ -5,6 +5,7 @@ import { filterData } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { slug: string };
@@ -22,6 +23,10 @@ const Service: React.FC<Props> = (props) => {
 
   const filterParams = { name: params.slug };
   const product = filterData(data, filterParams);
+
+  if (!product) {
+    return notFound();
+  }
 
   return (
     <div className={styles.container}>

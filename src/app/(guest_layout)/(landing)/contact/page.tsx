@@ -13,7 +13,7 @@ import {
 type Props = {};
 
 const BOOKING_AMOUNT: number = 10000;
-const CONTACT_EMAIL: string = "rocadeltaconsulting@gmail.com";
+const CONTACT_EMAIL: string = "mark@rocadeltaconsulting.com";
 const MESSAGE_PLACEHOLDER: string =
   "Hi, I need help developing a business model for my ecommerce store.";
 const isProduction = false;

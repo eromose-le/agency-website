@@ -14,7 +14,7 @@
   padding: 3.125rem;
   display: flex;
   flex-wrap: wrap;
-  z-index: 1000;
+  z-index: 2;
 }
 
 .form > input {
