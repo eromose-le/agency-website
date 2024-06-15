@@ -14,3 +14,12 @@ export function filterData<T extends Record<string, any>>(
     ) || null
   );
 }
+
+/**
+ * Generates random integers
+ * @param count - Number range to randomize
+ * @return A number.
+ */
+export function getRandomInt(count: number) {
+  return Math.floor(Math.random() * count);
+}
