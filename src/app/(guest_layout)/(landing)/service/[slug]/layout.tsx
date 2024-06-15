@@ -10,9 +10,5 @@ export default function ServiceDetailsLayout({
   //   throw new Error("Error loading layout service");
   // }
 
-  return (
-    <div className="h-[30vh] w-dvw flex flex-col items-center justify-center">
-      {children}
-    </div>
-  );
+  return <>{children}</>;
 }
