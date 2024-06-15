@@ -18,7 +18,7 @@ const MESSAGE_PLACEHOLDER: string =
   "Hi, I need help developing a business model for my ecommerce store.";
 const isProduction = false;
 
-const Contact: React.FC<Props> = (props) => {
+export default function Contact(props: { props: Props }) {
   // const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [amount, setAmount] = useState<number>(BOOKING_AMOUNT);
@@ -132,6 +132,4 @@ const Contact: React.FC<Props> = (props) => {
       )}
     </div>
   );
-};
-
-export default Contact;
+}

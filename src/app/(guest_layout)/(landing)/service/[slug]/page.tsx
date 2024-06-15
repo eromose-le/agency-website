@@ -4,10 +4,17 @@ import styles from "@/styles/Product.module.css";
 import { filterData } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 type Props = {
   params: { slug: string };
   searchParams: {};
+};
+
+export const generateMetadata = ({ params }: Props): Metadata => {
+  return {
+    title: `${params.slug} | Roca Delta`,
+  };
 };
 
 const Service: React.FC<Props> = (props) => {
