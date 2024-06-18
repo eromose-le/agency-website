@@ -1,10 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "ba-agency",
-=======
   "name": "rocadelta-app",
   "version": "0.1.0",
->>>>>>> 3d88f28 (Initial commit from Create Next App)
   "private": true,
   "scripts": {
     "dev": "next dev",
