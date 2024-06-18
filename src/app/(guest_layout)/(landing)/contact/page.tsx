@@ -2,74 +2,30 @@
 import Circle from "@/common/Circle";
 import styles from "@/styles/Contact.module.css";
 import React, { useState } from "react";
-import PaystackPayment, {
-  PaystackTransaction,
-} from "@/components/PaystackPayment";
+import PaystackPaymentUI from "@/components/PaystackPaymentUI";
 import {
-  // redirect,
-  useRouter,
-} from "next/navigation";
+  handleSubmit,
+  handleSuccess,
+  handleCancel,
+  CONTACT_EMAIL_PLACEHOLDER,
+  BOOKING_AMOUNT_VALUE,
+  MESSAGE_PLACEHOLDER_TEXT,
+} from "@/api/paystackPayment";
 
-type Props = {};
-
-const BOOKING_AMOUNT: number = 10000;
-const CONTACT_EMAIL: string = "mark@rocadeltaconsulting.com";
-const MESSAGE_PLACEHOLDER: string =
-  "Hi, I need help developing a business model for my ecommerce store.";
-const isProduction = false;
-
-export default function Contact(props: { props: Props }) {
-  // const router = useRouter();
+export default function Contact() {
   const [email, setEmail] = useState<string>("");
-  const [amount, setAmount] = useState<number>(BOOKING_AMOUNT);
+  const [amount] = useState<number>(BOOKING_AMOUNT_VALUE);
   const [showPaystack, setShowPaystack] = useState<boolean>(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setShowPaystack(true);
-  };
-
-  const handleSuccess = async (transaction: PaystackTransaction) => {
-    console.log("Transaction successful", transaction);
-    if (transaction.status === "success") {
-      console.log("SUCCESS FIRED");
-      // return router.push("/", { scroll: false });
-    }
-
-    try {
-      if (isProduction) {
-        const response = await fetch("/api/verifyTransaction", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ reference: transaction.reference }),
-        });
-        const data = await response.json();
-
-        if (data.status) {
-          console.log("Transaction verified", data);
-        } else {
-          console.log("Transaction verification failed", data);
-        }
-      }
-    } catch (error) {
-      console.error("Verification error", error);
-    }
-
-    setShowPaystack(false);
-  };
-
-  const handleCancel = () => {
-    console.log("Transaction was cancelled");
-  };
 
   return (
     <div className={styles.container}>
       <Circle backgroundColor="green" left="-40vh" top="-20vh" />
       <Circle backgroundColor="yellow" right="-30vh" bottom="-60vh" />
       <h1 className={styles.title}>GET IN TOUCH</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={(e) => handleSubmit(e, setShowPaystack)}
+      >
         <input
           id="firstName"
           type="text"
@@ -84,16 +40,6 @@ export default function Contact(props: { props: Props }) {
           className={styles.inputS}
           placeholder="Last Name"
         />
-
-        {/* <input id=""
-          type="number"
-          className={styles.inputL}
-          placeholder="Amount"
-          value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
-          required
-        /> */}
-
         <input
           id="subject"
           type="text"
@@ -104,18 +50,19 @@ export default function Contact(props: { props: Props }) {
         <input
           id="email"
           type="email"
-          autoComplete={CONTACT_EMAIL}
+          autoComplete={CONTACT_EMAIL_PLACEHOLDER}
           className={styles.inputL}
-          placeholder={CONTACT_EMAIL}
-          value={email}
+          placeholder={CONTACT_EMAIL_PLACEHOLDER}
+          // value={email}
+          required
           onChange={(e) => setEmail(e.target.value)}
         />
         <textarea
           id="message"
-          autoComplete={MESSAGE_PLACEHOLDER}
+          autoComplete={MESSAGE_PLACEHOLDER_TEXT}
           rows={6}
           className={styles.textArea}
-          placeholder={MESSAGE_PLACEHOLDER}
+          placeholder={MESSAGE_PLACEHOLDER_TEXT}
         />
         <button className={styles.button} type="submit">
           Pay Now
@@ -123,11 +70,13 @@ export default function Contact(props: { props: Props }) {
       </form>
 
       {showPaystack && (
-        <PaystackPayment
-          email={email || CONTACT_EMAIL}
-          amount={amount || BOOKING_AMOUNT}
-          onSuccess={handleSuccess}
-          onCancel={handleCancel}
+        <PaystackPaymentUI
+          email={email || CONTACT_EMAIL_PLACEHOLDER}
+          amount={amount}
+          onSuccess={(transaction) =>
+            handleSuccess(transaction, setShowPaystack)
+          }
+          onCancel={() => handleCancel(setShowPaystack)}
         />
       )}
     </div>
