@@ -1,3 +1,4 @@
+import { routeEnum } from "@/constants/routeConstants";
 import styles from "@/styles/Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,10 +10,10 @@ const Footer = () => {
         <h1 className={styles.title}>Roca Delta CONSULTING.</h1>
         <h1 className={styles.linkTitle}>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <Link className={styles.linkText} href="/contact">
+            <Link className={styles.linkText} href={routeEnum.BOOK}>
               BOOK CONSULTATION WITH US
             </Link>
-            <Link className={styles.linkText} href="/contact">
+            <Link className={styles.linkText} href={routeEnum.BOOK}>
               <Image
                 className={styles.imgFooter}
                 src="/assets/img/link.png
@@ -31,7 +32,7 @@ const Footer = () => {
           <br /> NIGERIA
         </div>
         <div className={styles.cardItem}>
-          CONTACT: rocadeltaconsulting@gmail.com
+          BOOK: rocadeltaconsulting@gmail.com
           <br /> +234 702 506 9316
         </div>
       </div>

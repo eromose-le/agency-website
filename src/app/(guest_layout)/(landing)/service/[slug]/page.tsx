@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { routeEnum } from "@/constants/routeConstants";
 
 type Props = {
   params: { slug: string };
@@ -56,7 +57,7 @@ const Service: React.FC<Props> = (props) => {
         <h1 className={styles.title}>{product?.title}</h1>
         <p className={styles.desc}>{product?.longDesc}</p>
         <button className={styles.button}>
-          <Link href="/contact">Book Now</Link>
+          <Link href={routeEnum.BOOK}>Book Now</Link>
         </button>
       </div>
     </div>

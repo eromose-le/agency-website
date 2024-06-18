@@ -1,8 +1,8 @@
 "use client";
 import Circle from "@/common/Circle";
-import styles from "@/styles/Contact.module.css";
+import styles from "@/styles/Book.module.css";
 import React, { useState } from "react";
-import PaystackPaymentUI from "@/components/PaystackPaymentUI";
+import PaystackPaymentUI from "@/components/paystack/PaystackPaymentUI";
 import {
   handleSubmit,
   handleSuccess,
@@ -12,7 +12,7 @@ import {
   MESSAGE_PLACEHOLDER_TEXT,
 } from "@/api/paystackPayment";
 
-export default function Contact() {
+export default function Book() {
   const [email, setEmail] = useState<string>("");
   const [amount] = useState<number>(BOOKING_AMOUNT_VALUE);
   const [showPaystack, setShowPaystack] = useState<boolean>(false);

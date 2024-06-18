@@ -9,5 +9,5 @@ export const routeEnum = {
   DEVELOPMENT: "/service/development",
   PRODUCTION: "/service/production",
   PHOTOGRAPHY: "/service/photography",
-  CONTACT: "/contact",
+  BOOK: "/book",
 };
