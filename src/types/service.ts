@@ -12,4 +12,7 @@ export type Service = {
   photo?: string;
   longDesc: string;
   images?: Img[];
+  price?: number | undefined;
+  image?: string | undefined;
+  qty?: number;
 };
