@@ -1,5 +1,6 @@
 "use client";
 import Circle from "@/common/Circle";
+import { routeEnum } from "@/constants/routeConstants";
 import styles from "@/styles/Intro.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -22,7 +23,7 @@ const Intro = () => {
         </p>
         <button
           className={styles.button}
-          onClick={() => router.push("/contact", { scroll: false })}
+          onClick={() => router.push(routeEnum.BOOK, { scroll: false })}
         >
           BOOK
         </button>

@@ -58,7 +58,7 @@ const Navbar = () => {
           ...[
             {
               name: "Contact",
-              href: routeEnum.CONTACT,
+              href: routeEnum.BOOK,
             },
           ],
         ].map((link) => {
